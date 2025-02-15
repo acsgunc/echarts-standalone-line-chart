@@ -23,10 +23,12 @@ export class LineChartComponent {
   constructor() {
     // Sample data with datetime stamps and gaps
     const data = [
+      ['2023-10-01 08:00', 120],
       ['2023-10-01 10:00', 120],
-      ['2023-10-01 12:00', null], // Gap
-      ['2023-10-01 14:00', 150],
-      ['2023-10-01 16:00', null], // Gap
+      ['2023-10-01 10:00', null], // Gap
+      ['2023-10-01 10:00', 120],
+      ['2023-10-01 14:00', 120],
+      ['2023-10-01 14:00', null], // Gap
       ['2023-10-01 18:00', 200],
       ['2023-10-01 20:00', 150],
       ['2023-10-01 22:00', 100]
@@ -35,11 +37,7 @@ export class LineChartComponent {
     this.chartOptions = {
       tooltip: {
         trigger: 'axis',
-        formatter: (params: any) => {
-          const date = params[0].axisValue;
-          const value = params[0].data[1] ?? 'No data';
-          return `${date}<br/>Value: ${value}`;
-        }
+
       },
       xAxis: {
         type: 'time', // Use 'time' type for datetime stamps
