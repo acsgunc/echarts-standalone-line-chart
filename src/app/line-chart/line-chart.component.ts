@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { NgxEchartsDirective } from 'ngx-echarts';
+import { DataPoint, noiseData, smallData } from './common/mock-data';
 
 
 @Component({
@@ -22,10 +23,10 @@ export class LineChartComponent {
 
   constructor() {
     // Sample data with datetime stamps and gaps
-    const data = [
+    let data : DataPoint[] = [
       ['2023-10-01 08:00', 100],
       ['2023-10-01 10:00', 100],
-      ['2023-10-01 10:00', null], // Gap
+      ['2023-10-01 10:00', NaN], // Gap
       ['2023-10-01 08:00', 150],
       ['2023-10-01 10:00', 150],
       ['2023-10-01 10:00', null], // Gap
@@ -33,9 +34,11 @@ export class LineChartComponent {
       ['2023-10-01 14:00', 120],
       ['2023-10-01 14:00', null], // Gap
       ['2023-10-01 18:00', 200],
-      ['2023-10-01 20:00', 150],
+      ['2023-10-01 20:00', NaN],
       ['2023-10-01 22:00', 100]
     ];
+
+data =   smallData;
 
     this.chartOptions = {
       tooltip: {
